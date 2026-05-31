@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Share+Tech+Mono&family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Share Tech Mono", "JetBrains Mono", monospace;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-sans: "JetBrains Mono", "Inter", sans-serif;
+}
+
+body {
+  background-color: #020502;
+  color: #00ff41;
+  font-family: var(--font-mono);
+}
+
+/* Custom styles for retro terminal high density scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #020502;
+  border-left: 1px solid rgba(0, 255, 65, 0.2);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 65, 0.4);
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00ff41;
+}
+
+/* Scanline and phosphor terminal screen effects */
+.terminal-glow {
+  text-shadow: 0 0 5px rgba(0, 255, 65, 0.6), 0 0 10px rgba(0, 255, 65, 0.3);
+}
+
+.terminal-glow-red {
+  text-shadow: 0 0 5px rgba(255, 59, 59, 0.6), 0 0 10px rgba(255, 59, 59, 0.3);
+}
+
+.crt-flicker {
+  position: relative;
+  overflow: hidden;
+}
+
+.crt-flicker::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 100;
+  background-size: 100% 3px, 3px 100%;
+  pointer-events: none;
+}
+
